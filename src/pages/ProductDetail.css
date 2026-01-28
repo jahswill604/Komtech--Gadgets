@@ -54,6 +54,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-12);
     padding: var(--spacing-10) 0;
+    align-items: start;
 }
 
 /* Gallery */
@@ -70,7 +71,24 @@
     border-radius: var(--radius-2xl);
     overflow: hidden;
     margin-bottom: var(--spacing-4);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-xl);
+    /* Stronger shadow for depth */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Mobile Sticky Bar (New Feature) */
+.mobile-sticky-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    padding: var(--spacing-3);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+    z-index: var(--z-fixed);
+    border-top: 1px solid var(--color-gray-100);
+    animation: fadeInUp 0.3s ease-out;
 }
 
 .main-image {

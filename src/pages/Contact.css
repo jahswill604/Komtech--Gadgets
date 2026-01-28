@@ -61,99 +61,40 @@
     background: var(--color-white);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.03);
     transition: all var(--transition-base);
 }
 
 .contact-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateX(5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(59, 130, 246, 0.1);
+    transform: translateY(-4px);
 }
 
-.contact-card-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary-100);
-    color: var(--color-primary-600);
-    border-radius: var(--radius-xl);
-    flex-shrink: 0;
-}
-
-.contact-card-icon.whatsapp {
-    background: rgba(37, 211, 102, 0.1);
-    color: #25D366;
-}
-
-.contact-card-content h3 {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--spacing-1);
-}
-
-.contact-card-content p {
-    font-size: var(--font-size-sm);
-    color: var(--color-gray-500);
-    margin: 0;
-}
-
-.contact-card-content a {
-    color: var(--color-primary-600);
-    font-weight: var(--font-weight-medium);
-}
-
-.contact-card-content a:hover {
-    text-decoration: underline;
-}
-
-/* Business Hours */
-.business-hours {
-    background: var(--color-white);
-    padding: var(--spacing-6);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
-}
-
-.business-hours h3 {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-4);
-}
-
-.hours-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-3);
-}
-
-.hours-row {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: var(--spacing-2);
-    border-bottom: 1px solid var(--color-gray-100);
-}
-
-.hours-row:last-child {
-    border-bottom: none;
-}
-
-.day {
-    color: var(--color-gray-600);
-}
-
-.time {
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-gray-900);
-}
-
-/* Contact Form */
 .contact-form-wrapper {
     background: var(--color-white);
     padding: var(--spacing-8);
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--spacing-3) var(--spacing-4);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-fast);
+    background: var(--color-gray-50);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: var(--color-white);
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
 .contact-form-wrapper h2 {
