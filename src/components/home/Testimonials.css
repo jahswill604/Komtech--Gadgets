@@ -194,8 +194,7 @@
 
     .testimonial-card {
         padding: var(--spacing-6);
-        position: relative;
-        /* Ensure it stays within track flow if possible, or keep absolute */
+        /* Keep position absolute from desktop styles for correct carousel behavior */
         width: 100%;
         left: 0;
     }

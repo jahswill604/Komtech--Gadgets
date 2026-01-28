@@ -92,7 +92,7 @@ function Header() {
                                 <span className="icon-badge">{getWishlistCount()}</span>
                             )}
                         </Link>
-                        <Link to="/cart" className="header-icon-btn" title="Cart">
+                        <Link to="/cart" className="header-icon-btn" title="Cart" aria-label="Cart">
                             <ShoppingCart size={22} />
                             {getCartCount() > 0 && (
                                 <span className="icon-badge">{getCartCount()}</span>

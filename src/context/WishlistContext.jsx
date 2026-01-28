@@ -31,20 +31,17 @@ const initialState = {
 };
 
 export function WishlistProvider({ children }) {
-    const [state, dispatch] = useReducer(wishlistReducer, initialState);
-
-    // Load wishlist from localStorage on mount
-    useEffect(() => {
-        const savedWishlist = localStorage.getItem('komtech_wishlist');
-        if (savedWishlist) {
-            try {
-                const parsedWishlist = JSON.parse(savedWishlist);
-                dispatch({ type: 'LOAD_WISHLIST', payload: parsedWishlist });
-            } catch (e) {
-                console.error('Error loading wishlist:', e);
-            }
+    const [state, dispatch] = useReducer(wishlistReducer, initialState, (initial) => {
+        try {
+            const savedWishlist = localStorage.getItem('komtech_wishlist');
+            return savedWishlist ? { ...initial, items: JSON.parse(savedWishlist) } : initial;
+        } catch (error) {
+            console.error('Error loading wishlist from localStorage:', error);
+            return initial;
         }
-    }, []);
+    });
+
+    // Load wishlist effect is removed as it's now handled in initialization
 
     // Save wishlist to localStorage on change
     useEffect(() => {

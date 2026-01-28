@@ -1,14 +1,4 @@
-import { Link } from 'react-router-dom';
-import {
-    MapPin,
-    Clock,
-    Phone,
-    Mail,
-    Send,
-    MessageCircle,
-    ChevronRight
-} from 'lucide-react';
-import './Contact.css';
+
 
 import { Link } from 'react-router-dom';
 import {
@@ -38,18 +28,20 @@ function Contact() {
             {/* Hero Section */}
             <div className="contact-hero">
                 <div className="container">
-                    <div className="hero-content">
+                    <div className="hero-content animate-fade-in-up">
+                        <span className="hero-badge">24/7 Support</span>
                         <h1>Get in Touch</h1>
                         <p>We're here to help you finding the best gadgets for your needs.</p>
                     </div>
                 </div>
+                <div className="hero-pattern"></div>
             </div>
 
             <div className="container contact-container">
                 <div className="contact-grid">
                     {/* Contact Info Column */}
                     <div className="contact-info-col">
-                        <div className="section-header-left">
+                        <div className="section-header-left animate-fade-in-up stagger-1">
                             <span className="badge badge-primary">Contact Us</span>
                             <h2>Let's Start a Conversation</h2>
                             <p className="section-desc">
@@ -58,7 +50,7 @@ function Contact() {
                             </p>
                         </div>
 
-                        <div className="contact-cards">
+                        <div className="contact-cards animate-fade-in-up stagger-2">
                             <div className="contact-card">
                                 <div className="card-icon-wrapper">
                                     <MapPin size={24} />
@@ -106,7 +98,7 @@ function Contact() {
                             </a>
                         </div>
 
-                        <div className="social-connect">
+                        <div className="social-connect animate-fade-in-up stagger-3">
                             <h3>Follow Us</h3>
                             <div className="social-icons">
                                 <a href="#" className="social-btn"><Instagram size={20} /></a>
@@ -118,7 +110,7 @@ function Contact() {
                     </div>
 
                     {/* Form Column */}
-                    <div className="contact-form-col">
+                    <div className="contact-form-col animate-fade-in-up stagger-2">
                         <div className="form-card">
                             <h3>Send a Message</h3>
                             <form className="contact-form" onSubmit={handleSubmit}>
@@ -154,7 +146,7 @@ function Contact() {
                 </div>
 
                 {/* Map Section */}
-                <div className="map-section section">
+                <div className="map-section section animate-fade-in-up stagger-3">
                     <div className="section-header">
                         <h2>Locate Us</h2>
                         <p className="section-subtitle">Visit our physical store to experience our gadgets firsthand.</p>

@@ -7,7 +7,8 @@ import {
     ArrowRight,
     Truck,
     Shield,
-    CreditCard
+    CreditCard,
+    MessageCircle
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../data/products';
@@ -15,7 +16,7 @@ import './Cart.css';
 
 function Cart() {
     const {
-        cartItems,
+        items: cartItems,
         removeFromCart,
         updateQuantity,
         clearCart,
@@ -134,10 +135,19 @@ function Cart() {
                             </div>
                         </div>
 
-                        <Link to="/checkout" className="btn btn-cta btn-lg checkout-btn">
-                            Proceed to Checkout
-                            <ArrowRight size={20} />
-                        </Link>
+                        <a
+                            href={`https://wa.me/2347034088743?text=${encodeURIComponent(
+                                `Hello Komtech Gadgets, I want to place an order:\n\n${cartItems.map(item =>
+                                    `• ${item.quantity}x ${item.name} - ${formatPrice(item.price * item.quantity)}`
+                                ).join('\n')}\n\n*Total Amount: ${formatPrice(total)}*\n\nPlease confirm availability.`
+                            )}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-cta btn-lg checkout-btn"
+                        >
+                            Proceed on WhatsApp
+                            <MessageCircle size={20} />
+                        </a>
 
                         <div className="summary-trust">
                             <div className="trust-item">

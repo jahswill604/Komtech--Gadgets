@@ -49,20 +49,17 @@ const initialState = {
 };
 
 export function CartProvider({ children }) {
-    const [state, dispatch] = useReducer(cartReducer, initialState);
-
-    // Load cart from localStorage on mount
-    useEffect(() => {
-        const savedCart = localStorage.getItem('komtech_cart');
-        if (savedCart) {
-            try {
-                const parsedCart = JSON.parse(savedCart);
-                dispatch({ type: 'LOAD_CART', payload: parsedCart });
-            } catch (e) {
-                console.error('Error loading cart:', e);
-            }
+    const [state, dispatch] = useReducer(cartReducer, initialState, (initial) => {
+        try {
+            const savedCart = localStorage.getItem('komtech_cart');
+            return savedCart ? { ...initial, items: JSON.parse(savedCart) } : initial;
+        } catch (error) {
+            console.error('Error loading cart from localStorage:', error);
+            return initial;
         }
-    }, []);
+    });
+
+    // Load cart effect is removed as it's now handled in initialization
 
     // Save cart to localStorage on change
     useEffect(() => {
