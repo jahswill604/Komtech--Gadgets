@@ -94,6 +94,15 @@
 .gallery-thumbs {
     display: flex;
     gap: var(--spacing-3);
+    overflow-x: auto;
+    padding-bottom: var(--spacing-2);
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.gallery-thumbs::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Opera */
 }
 
 .thumb {
@@ -510,125 +519,6 @@
     }
 
     .related-products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-4);
-    }
-
-    .trust-badges-detail {
-        gap: var(--spacing-4);
-    }
-
-    .trust-badge {
-        font-size: var(--font-size-xs);
-    }
-
-    .product-specs-section {
-        padding: var(--spacing-5);
-    }
-}
-
-@media (max-width: 480px) {
-    .breadcrumb {
-        font-size: var(--font-size-xs);
-    }
-
-    .breadcrumb-bar {
-        padding: var(--spacing-3) 0;
-    }
-
-    .product-detail-grid {
-        padding: var(--spacing-4) 0;
-        gap: var(--spacing-5);
-    }
-
-    .product-title {
-        font-size: var(--font-size-xl);
-    }
-
-    .current-price {
-        font-size: var(--font-size-xl);
-    }
-
-    .original-price {
-        font-size: var(--font-size-base);
-    }
-
-    .product-meta .product-brand-tag,
-    .product-meta .new-tag {
-        font-size: 10px;
-        padding: 2px var(--spacing-2);
-    }
-
-    .product-rating-detail {
-        gap: var(--spacing-2);
-        font-size: var(--font-size-sm);
-    }
-
-    .product-description {
-        font-size: var(--font-size-sm);
-    }
-
-    .delivery-option {
-        padding: var(--spacing-3);
-    }
-
-    .option-title {
-        font-size: var(--font-size-sm);
-    }
-
-    .option-desc {
-        font-size: var(--font-size-xs);
-    }
-
-    .quantity-selector button {
-        width: 36px;
-        height: 36px;
-    }
-
-    .quantity-selector span {
-        width: 36px;
-    }
-
-    .btn-wishlist,
-    .btn-share {
-        width: 44px;
-        height: 44px;
-    }
-
-    .product-specs-section {
-        padding: var(--spacing-4);
-        border-radius: var(--radius-xl);
-    }
-
-    .product-specs-section h2 {
-        font-size: var(--font-size-lg);
-        margin-bottom: var(--spacing-4);
-    }
-
-    .spec-item {
-        flex-direction: column;
-        gap: var(--spacing-1);
-    }
-
-    .spec-value {
-        text-align: left;
-    }
-
-    .related-products-section h2 {
-        font-size: var(--font-size-xl);
-    }
-
-    .related-products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-3);
-    }
-
-    .gallery-thumbs {
-        gap: var(--spacing-2);
-    }
-
-    .thumb {
-        width: 60px;
-        height: 60px;
+        grid-template-columns: 1fr;
     }
 }
