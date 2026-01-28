@@ -315,15 +315,18 @@
         position: fixed;
         top: 0;
         left: -100%;
-        width: 100%;
-        /* Full width on mobile for better focus */
+        width: 85%;
+        max-width: 320px;
+        /* Restrict width so it doesn't cover screen */
         height: 100vh;
-        border-radius: 0;
+        border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+        /* Rounded corners on right */
         z-index: var(--z-modal);
         overflow-y: auto;
         transition: left var(--transition-bounce);
         padding-bottom: 100px;
-        /* Space for mobile sticky bar if needed, or just bottom padding */
+        box-shadow: var(--shadow-2xl);
+        /* Add strong shadow for depth */
     }
 
     .filter-sidebar.open {
