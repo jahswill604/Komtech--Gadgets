@@ -249,10 +249,6 @@
         grid-template-columns: 1fr;
         gap: var(--spacing-8);
     }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 600px) {
@@ -264,17 +260,32 @@
         font-size: var(--font-size-2xl);
     }
 
+    .contact-container {
+        padding: var(--spacing-8) var(--container-padding);
+    }
+
     .contact-form-wrapper {
         padding: var(--spacing-6);
     }
 
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
     .map-overlay {
-        position: static;
+        position: relative;
+        inset: auto;
         padding: var(--spacing-4);
+        background: var(--color-gray-50);
     }
 
     .map-info {
-        border-radius: 0;
+        border-radius: var(--radius-xl);
         box-shadow: none;
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
     }
 }
