@@ -134,10 +134,10 @@ function Cart() {
                             </div>
                         </div>
 
-                        <button className="btn btn-cta btn-lg checkout-btn">
+                        <Link to="/checkout" className="btn btn-cta btn-lg checkout-btn">
                             Proceed to Checkout
                             <ArrowRight size={20} />
-                        </button>
+                        </Link>
 
                         <div className="summary-trust">
                             <div className="trust-item">

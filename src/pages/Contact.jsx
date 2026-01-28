@@ -10,6 +10,22 @@ import {
 } from 'lucide-react';
 import './Contact.css';
 
+import { Link } from 'react-router-dom';
+import {
+    MapPin,
+    Clock,
+    Phone,
+    Mail,
+    Send,
+    MessageCircle,
+    ChevronRight,
+    Instagram,
+    Facebook,
+    Twitter,
+    Linkedin
+} from 'lucide-react';
+import './Contact.css';
+
 function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,153 +35,140 @@ function Contact() {
 
     return (
         <div className="contact-page">
-            {/* Header */}
-            <div className="contact-header">
+            {/* Hero Section */}
+            <div className="contact-hero">
                 <div className="container">
-                    <h1>Contact Us</h1>
-                    <p>We'd love to hear from you. Get in touch with us today!</p>
+                    <div className="hero-content">
+                        <h1>Get in Touch</h1>
+                        <p>We're here to help you finding the best gadgets for your needs.</p>
+                    </div>
                 </div>
             </div>
 
             <div className="container contact-container">
                 <div className="contact-grid">
-                    {/* Contact Info */}
-                    <div className="contact-info">
-                        <h2>Get In Touch</h2>
-                        <p className="contact-intro">
-                            Have questions about our products or services? Need help choosing the right gadget?
-                            Reach out to us through any of these channels.
-                        </p>
+                    {/* Contact Info Column */}
+                    <div className="contact-info-col">
+                        <div className="section-header-left">
+                            <span className="badge badge-primary">Contact Us</span>
+                            <h2>Let's Start a Conversation</h2>
+                            <p className="section-desc">
+                                Have questions about our products, support services, or just want to say hello?
+                                We'd love to hear from you.
+                            </p>
+                        </div>
 
                         <div className="contact-cards">
                             <div className="contact-card">
-                                <div className="contact-card-icon">
+                                <div className="card-icon-wrapper">
                                     <MapPin size={24} />
                                 </div>
-                                <div className="contact-card-content">
+                                <div className="card-details">
                                     <h3>Visit Our Store</h3>
                                     <p>128, Old Aba Road, By 1st Artillery<br />Port Harcourt, Rivers State, Nigeria</p>
                                 </div>
                             </div>
 
-                            <div className="contact-card">
-                                <div className="contact-card-icon">
+                            <a href="tel:+2347034088743" className="contact-card clickable">
+                                <div className="card-icon-wrapper">
                                     <Phone size={24} />
                                 </div>
-                                <div className="contact-card-content">
+                                <div className="card-details">
                                     <h3>Call Us</h3>
-                                    <a href="tel:+2347034088743">0703 408 8743</a>
-                                    <p>Mon - Sat: 9 AM - 6 PM</p>
+                                    <p className="highlight">0703 408 8743</p>
+                                    <span className="sub-text">Mon - Sat, 9am - 6pm</span>
                                 </div>
-                            </div>
+                                <ChevronRight size={20} className="arrow-icon" />
+                            </a>
 
-                            <div className="contact-card">
-                                <div className="contact-card-icon">
+                            <a href="mailto:info@komtechgadgets.com" className="contact-card clickable">
+                                <div className="card-icon-wrapper">
                                     <Mail size={24} />
                                 </div>
-                                <div className="contact-card-content">
-                                    <h3>Email Us</h3>
-                                    <a href="mailto:info@komtechgadgets.com">info@komtechgadgets.com</a>
-                                    <p>We reply within 24 hours</p>
+                                <div className="card-details">
+                                    <h3>Email Support</h3>
+                                    <p className="highlight">info@komtechgadgets.com</p>
+                                    <span className="sub-text">24/7 Online Support</span>
                                 </div>
-                            </div>
+                                <ChevronRight size={20} className="arrow-icon" />
+                            </a>
 
-                            <div className="contact-card">
-                                <div className="contact-card-icon whatsapp">
+                            <a href="https://wa.me/2347034088743" target="_blank" rel="noopener noreferrer" className="contact-card clickable whatsapp-card">
+                                <div className="card-icon-wrapper">
                                     <MessageCircle size={24} />
                                 </div>
-                                <div className="contact-card-content">
-                                    <h3>WhatsApp</h3>
-                                    <a href="https://wa.me/2347034088743" target="_blank" rel="noopener noreferrer">
-                                        Chat with us instantly
-                                    </a>
-                                    <p>Fastest response time</p>
+                                <div className="card-details">
+                                    <h3>Chat on WhatsApp</h3>
+                                    <p className="highlight">Chat with an Agent</p>
+                                    <span className="sub-text">Instant Response</span>
                                 </div>
-                            </div>
+                                <ChevronRight size={20} className="arrow-icon" />
+                            </a>
                         </div>
 
-                        {/* Business Hours */}
-                        <div className="business-hours">
-                            <h3><Clock size={20} /> Business Hours</h3>
-                            <div className="hours-grid">
-                                <div className="hours-row">
-                                    <span className="day">Monday - Friday</span>
-                                    <span className="time">9:00 AM - 6:00 PM</span>
-                                </div>
-                                <div className="hours-row">
-                                    <span className="day">Saturday</span>
-                                    <span className="time">9:00 AM - 5:00 PM</span>
-                                </div>
-                                <div className="hours-row">
-                                    <span className="day">Sunday</span>
-                                    <span className="time">Closed</span>
-                                </div>
+                        <div className="social-connect">
+                            <h3>Follow Us</h3>
+                            <div className="social-icons">
+                                <a href="#" className="social-btn"><Instagram size={20} /></a>
+                                <a href="#" className="social-btn"><Facebook size={20} /></a>
+                                <a href="#" className="social-btn"><Twitter size={20} /></a>
+                                <a href="#" className="social-btn"><Linkedin size={20} /></a>
                             </div>
                         </div>
                     </div>
 
-                    {/* Contact Form */}
-                    <div className="contact-form-wrapper">
-                        <h2>Send Us a Message</h2>
-                        <form className="contact-form" onSubmit={handleSubmit}>
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label htmlFor="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" required placeholder="Your name" />
+                    {/* Form Column */}
+                    <div className="contact-form-col">
+                        <div className="form-card">
+                            <h3>Send a Message</h3>
+                            <form className="contact-form" onSubmit={handleSubmit}>
+                                <div className="form-row">
+                                    <div className="form-group">
+                                        <label htmlFor="name">Full Name</label>
+                                        <input type="text" id="name" name="name" required placeholder="John Doe" className="input" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="0803..." className="input" />
+                                    </div>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="phone">Phone Number *</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="0803 XXX XXXX" />
+                                    <label htmlFor="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" className="input" />
                                 </div>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="your@email.com" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="What is this about?" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="message">Message *</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
-                            </div>
-                            <button type="submit" className="btn btn-cta btn-lg">
-                                <Send size={20} />
-                                Send Message
-                            </button>
-                        </form>
+                                <div className="form-group">
+                                    <label htmlFor="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" placeholder="Inquiry about..." className="input" />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required placeholder="How can we help you today?" className="input textarea"></textarea>
+                                </div>
+                                <button type="submit" className="btn btn-cta btn-lg btn-block">
+                                    <span>Send Message</span>
+                                    <Send size={18} />
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
-                {/* Map */}
-                <div className="map-section">
-                    <h2>Find Us</h2>
-                    <div className="map-container">
+                {/* Map Section */}
+                <div className="map-section section">
+                    <div className="section-header">
+                        <h2>Locate Us</h2>
+                        <p className="section-subtitle">Visit our physical store to experience our gadgets firsthand.</p>
+                    </div>
+                    <div className="map-wrapper">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.6!2d7.02!3d4.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDknMTIuMCJOIDfCsDAxJzEyLjAiRQ!5e0!3m2!1sen!2sng!4v1600000000000!5m2!1sen!2sng"
                             width="100%"
-                            height="400"
-                            style={{ border: 0, borderRadius: '16px' }}
+                            height="450"
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             title="Komtech Gadgets Location"
                         ></iframe>
-                        <div className="map-overlay">
-                            <div className="map-info">
-                                <h3>Komtech Gadgets</h3>
-                                <p>128, Old Aba Road, By 1st Artillery</p>
-                                <a
-                                    href="https://maps.google.com/?q=128+Old+Aba+Road+Port+Harcourt"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-primary"
-                                >
-                                    Get Directions <ChevronRight size={18} />
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
