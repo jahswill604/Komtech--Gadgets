@@ -264,8 +264,25 @@
         font-size: var(--font-size-2xl);
     }
 
+    .contact-header p {
+        font-size: var(--font-size-base);
+    }
+
+    .contact-container {
+        padding: var(--spacing-10) var(--container-padding);
+    }
+
+    .contact-grid {
+        margin-bottom: var(--spacing-10);
+    }
+
     .contact-form-wrapper {
         padding: var(--spacing-6);
+        border-radius: var(--radius-xl);
+    }
+
+    .contact-form-wrapper h2 {
+        font-size: var(--font-size-xl);
     }
 
     .map-overlay {
@@ -276,5 +293,68 @@
     .map-info {
         border-radius: 0;
         box-shadow: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-header {
+        padding: var(--spacing-8) 0;
+    }
+
+    .contact-header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .contact-container {
+        padding: var(--spacing-6) var(--spacing-3);
+    }
+
+    .contact-info h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .contact-card {
+        padding: var(--spacing-4);
+        gap: var(--spacing-3);
+    }
+
+    .contact-card-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .contact-card-content h3 {
+        font-size: var(--font-size-sm);
+    }
+
+    .contact-card-content p,
+    .contact-card-content a {
+        font-size: var(--font-size-xs);
+    }
+
+    .business-hours {
+        padding: var(--spacing-4);
+    }
+
+    .business-hours h3 {
+        font-size: var(--font-size-base);
+    }
+
+    .hours-row {
+        font-size: var(--font-size-sm);
+    }
+
+    .contact-form-wrapper {
+        padding: var(--spacing-4);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: var(--spacing-3);
+        font-size: var(--font-size-sm);
+    }
+
+    .map-section h2 {
+        font-size: var(--font-size-xl);
     }
 }
