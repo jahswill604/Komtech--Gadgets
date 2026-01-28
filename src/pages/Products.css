@@ -308,19 +308,22 @@
 @media (max-width: 900px) {
     .products-container {
         grid-template-columns: 1fr;
+        padding-top: var(--spacing-4);
     }
 
     .filter-sidebar {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 85%;
-        max-width: 350px;
+        width: 100%;
+        /* Full width on mobile for better focus */
         height: 100vh;
         border-radius: 0;
         z-index: var(--z-modal);
         overflow-y: auto;
-        transition: left var(--transition-slow);
+        transition: left var(--transition-bounce);
+        padding-bottom: 100px;
+        /* Space for mobile sticky bar if needed, or just bottom padding */
     }
 
     .filter-sidebar.open {
@@ -332,30 +335,129 @@
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
         z-index: var(--z-modal-backdrop);
     }
 
     .close-filters {
-        background: none;
+        background: var(--color-gray-100);
         border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
         color: var(--color-gray-600);
     }
 }
 
-@media (max-width: 600px) {
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+    .products-page {
+        padding-bottom: 80px;
+        /* Space for sticky bar */
+    }
+
     .products-grid.grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-3);
+        padding: 0 var(--spacing-2);
     }
 
-    .products-toolbar {
-        flex-direction: column;
-        gap: var(--spacing-3);
+    /* Mobile Header & Search */
+    .mobile-product-header {
+        margin-bottom: var(--spacing-4);
+        padding: 0 var(--spacing-2);
     }
 
-    .toolbar-right {
-        width: 100%;
+    .mobile-search-wrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-2);
+        background: var(--color-white);
+        padding: var(--spacing-3);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .mobile-search-wrapper input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: var(--font-size-base);
+    }
+
+    .mobile-active-filters {
+        display: flex;
         justify-content: space-between;
+        align-items: center;
+        padding: 0 var(--spacing-4);
+        margin-bottom: var(--spacing-4);
+        font-size: var(--font-size-sm);
+        color: var(--color-gray-600);
+    }
+
+    .mobile-active-filters button {
+        color: var(--color-error);
+        font-weight: var(--font-weight-medium);
+    }
+
+    /* Mobile Sticky Action Bar */
+    .mobile-action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--color-white);
+        display: flex;
+        align-items: center;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        z-index: var(--z-fixed);
+        padding-bottom: env(safe-area-inset-bottom);
+        height: calc(60px + env(safe-area-inset-bottom));
+    }
+
+    .mobile-action-btn {
+        flex: 1;
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-2);
+        height: 100%;
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-gray-800);
+    }
+
+    .mobile-action-btn:active {
+        background: var(--color-gray-50);
+    }
+
+    .mobile-action-divider {
+        width: 1px;
+        height: 24px;
+        background: var(--color-gray-200);
+    }
+
+    /* Sort Wrapper relative for select overlay */
+    .mobile-sort-wrapper {
+        flex: 1;
+        position: relative;
+        height: 100%;
+        display: flex;
+    }
+
+    .mobile-sort-select {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
     }
 }

@@ -71,20 +71,6 @@ function Header() {
                         </div>
                     </Link>
 
-                    {/* Search Bar - Desktop */}
-                    <form className="header-search hide-mobile" onSubmit={handleSearch}>
-                        <input
-                            type="text"
-                            placeholder="Search for phones, tablets, accessories..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="search-input"
-                        />
-                        <button type="submit" className="search-btn">
-                            <Search size={20} />
-                        </button>
-                    </form>
-
                     {/* Desktop Navigation */}
                     <nav className="header-nav hide-mobile">
                         {navLinks.map(link => (
@@ -122,19 +108,7 @@ function Header() {
                     </div>
                 </div>
 
-                {/* Mobile Search */}
-                <form className="header-search-mobile hide-desktop" onSubmit={handleSearch}>
-                    <input
-                        type="text"
-                        placeholder="Search products..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="search-input"
-                    />
-                    <button type="submit" className="search-btn">
-                        <Search size={18} />
-                    </button>
-                </form>
+                {/* Header Actions */}
             </div>
 
             {/* Mobile Navigation */}

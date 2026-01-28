@@ -193,64 +193,114 @@ function Products() {
 
                 {/* Product Grid */}
                 <main className="products-main">
-                    {/* Toolbar */}
-                    <div className="products-toolbar">
-                        <button
-                            className="filter-toggle hide-desktop"
-                            onClick={() => setIsFilterOpen(true)}
-                        >
-                            <Filter size={20} />
-                            Filters
-                            {activeFiltersCount > 0 && <span className="filter-count">{activeFiltersCount}</span>}
-                        </button>
+                    {/* Product Grid */}
+                    <main className="products-main">
+                        {/* Mobile Search & Header */}
+                        <div className="mobile-product-header hide-desktop">
+                            <div className="mobile-search-wrapper">
+                                <Search size={18} />
+                                <input
+                                    type="text"
+                                    placeholder="Search products..."
+                                    value={searchQuery}
+                                    onChange={(e) => updateFilter('search', e.target.value)}
+                                />
+                            </div>
+                        </div>
 
-                        <div className="toolbar-right">
-                            <div className="sort-dropdown">
-                                <label>Sort by:</label>
+                        {/* Check active filters summary for mobile */}
+                        {activeFiltersCount > 0 && (
+                            <div className="mobile-active-filters hide-desktop">
+                                <span>{activeFiltersCount} filters active</span>
+                                <button onClick={clearFilters}>Clear</button>
+                            </div>
+                        )}
+
+                        {/* Desktop Toolbar */}
+                        <div className="products-toolbar hide-mobile">
+                            <button
+                                className="filter-toggle"
+                                onClick={() => setIsFilterOpen(true)}
+                            >
+                                <Filter size={20} />
+                                Filters
+                                {activeFiltersCount > 0 && <span className="filter-count">{activeFiltersCount}</span>}
+                            </button>
+
+                            <div className="toolbar-right">
+                                <div className="sort-dropdown">
+                                    <label>Sort by:</label>
+                                    <select
+                                        value={sortBy}
+                                        onChange={(e) => updateFilter('sort', e.target.value)}
+                                    >
+                                        {sortOptions.map(opt => (
+                                            <option key={opt.id} value={opt.id}>{opt.label}</option>
+                                        ))}
+                                    </select>
+                                    <ChevronDown size={16} />
+                                </div>
+
+                                <div className="view-toggle">
+                                    <button
+                                        className={viewMode === 'grid' ? 'active' : ''}
+                                        onClick={() => setViewMode('grid')}
+                                    >
+                                        <Grid size={20} />
+                                    </button>
+                                    <button
+                                        className={viewMode === 'list' ? 'active' : ''}
+                                        onClick={() => setViewMode('list')}
+                                    >
+                                        <List size={20} />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Mobile Floating Action Bar (Sticky Bottom) */}
+                        <div className="mobile-action-bar hide-desktop">
+                            <button
+                                className="mobile-action-btn"
+                                onClick={() => setIsFilterOpen(true)}
+                            >
+                                <Filter size={20} />
+                                <span>Filter {activeFiltersCount > 0 && `(${activeFiltersCount})`}</span>
+                            </button>
+                            <div className="mobile-action-divider"></div>
+                            <div className="mobile-sort-wrapper">
                                 <select
                                     value={sortBy}
                                     onChange={(e) => updateFilter('sort', e.target.value)}
+                                    className="mobile-sort-select"
                                 >
                                     {sortOptions.map(opt => (
                                         <option key={opt.id} value={opt.id}>{opt.label}</option>
                                     ))}
                                 </select>
-                                <ChevronDown size={16} />
-                            </div>
-
-                            <div className="view-toggle hide-mobile">
-                                <button
-                                    className={viewMode === 'grid' ? 'active' : ''}
-                                    onClick={() => setViewMode('grid')}
-                                >
-                                    <Grid size={20} />
-                                </button>
-                                <button
-                                    className={viewMode === 'list' ? 'active' : ''}
-                                    onClick={() => setViewMode('list')}
-                                >
+                                <button className="mobile-action-btn sort-btn">
                                     <List size={20} />
+                                    <span>Sort</span>
                                 </button>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Products */}
-                    {filteredProducts.length > 0 ? (
-                        <div className={`products-grid ${viewMode}`}>
-                            {filteredProducts.map(product => (
-                                <ProductCard key={product.id} product={product} />
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="no-products">
-                            <p>No products found matching your criteria.</p>
-                            <button className="btn btn-primary" onClick={clearFilters}>
-                                Clear Filters
-                            </button>
-                        </div>
-                    )}
-                </main>
+                        {/* Products */}
+                        {filteredProducts.length > 0 ? (
+                            <div className={`products-grid ${viewMode}`}>
+                                {filteredProducts.map(product => (
+                                    <ProductCard key={product.id} product={product} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="no-products">
+                                <p>No products found matching your criteria.</p>
+                                <button className="btn btn-primary" onClick={clearFilters}>
+                                    Clear Filters
+                                </button>
+                            </div>
+                        )}
+                    </main>
             </div>
 
             {/* Mobile Filter Overlay */}
