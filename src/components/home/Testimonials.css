@@ -177,19 +177,27 @@
 /* Responsive */
 @media (max-width: 768px) {
     .testimonials-carousel {
-        flex-direction: column;
+        padding-bottom: var(--spacing-12);
+        /* Space for dots/buttons */
+    }
+
+    .testimonials-track {
+        min-height: 450px;
+        /* Increased to fit content on narrow screens */
+        width: 100%;
     }
 
     .carousel-btn {
         display: none;
-    }
-
-    .testimonials-track {
-        min-height: 400px;
+        /* Hide navigation arrows on mobile as they take horizontal space */
     }
 
     .testimonial-card {
         padding: var(--spacing-6);
+        position: relative;
+        /* Ensure it stays within track flow if possible, or keep absolute */
+        width: 100%;
+        left: 0;
     }
 
     .testimonial-text {
@@ -198,5 +206,9 @@
 
     .rating-value {
         font-size: var(--font-size-5xl);
+    }
+
+    .carousel-dots {
+        margin-top: var(--spacing-4);
     }
 }
